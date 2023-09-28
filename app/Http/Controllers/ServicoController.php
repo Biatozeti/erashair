@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ServicoController extends Controller
 
     {
-        public function store(ServicoFormRequest $request)
+        public function store1(ServicoFormRequest $request)
         {
           $usuario = servico::create([
       
@@ -25,9 +25,9 @@ class ServicoController extends Controller
           ], 200);
         }
 
-        public function pesquisarPorNome(Request $request)
+        public function pesquisarPorNome1(Request $request)
         {
-          $usuario = servico::where('nome', 'like', '%' . $request->nome . '%')->get();
+          $usuario = servico::where('nome', 'like', '%' . $request->pesquisarPorNome1 . '%')->get();
       
           if (count($usuario) > 0) {
             return response()->json([
@@ -42,9 +42,9 @@ class ServicoController extends Controller
           ]);
         }
 
-        public function pesquisarPorDescricao(Request $request)
+        public function pesquisarPorDescricao1(Request $request)
         {
-          $usuario = servico::where('descricao', 'like', '%' . $request->descricao. '%')->get();
+          $usuario = servico::where('descricao', 'like', '%' . $request->pesquisarPorDescricao1. '%')->get();
       
           if (count($usuario) > 0) {
             return response()->json([

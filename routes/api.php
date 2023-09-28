@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::post('store',
-[ServicoController::class, 'store']);
+Route::post('store1',
+[ServicoController::class, 'store1']);
 
-Route::post('nome',
-[ServicoController::class, 'pesquisarPorNome']);
+Route::post('nome1',
+[ServicoController::class, 'pesquisarPorNome1']);
 
-Route::post('descricao',
-[ServicoController::class, 'PesquisarPorDescricao']);
+Route::post('descricao1',
+[ServicoController::class, 'PesquisarPorDescricao1']);
 
 Route::delete('delete/{id}',
 [ServicoController::class, 'excluir']);
@@ -32,11 +32,11 @@ Route::put('update',
 
 //
 
-Route::post('store',
-[ClienteController::class, 'store']);
+Route::post('store2',
+[ClienteController::class, 'store2']);
 
-Route::post('nome',
-[ClienteController::class, 'pesquisarPorNome']);
+Route::post('nome2',
+[ClienteController::class, 'pesquisarPorNome2']);
 
 Route::post('cpf',
 [ClienteController::class, 'PesquisarPorCpf']);

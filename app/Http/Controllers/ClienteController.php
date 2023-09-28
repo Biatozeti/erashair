@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class ClienteController extends Controller
 {
     
-    public function store(ClienteFormRequest $request)
+    public function store2(ClienteFormRequest $request)
     {
       $cliente = cliente::create([
   
@@ -37,9 +37,9 @@ class ClienteController extends Controller
       ], 200);
     }
 
-    public function pesquisarPorNome(Request $request)
+    public function pesquisarPorNome2(Request $request)
         {
-          $cliente = cliente::where('nome', 'like', '%' . $request->nome . '%')->get();
+          $cliente = cliente::where('nome', 'like', '%' . $request->pesquisarPorNome2 . '%')->get();
       
           if (count($cliente) > 0) {
             return response()->json([
