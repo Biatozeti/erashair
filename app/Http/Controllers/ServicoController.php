@@ -91,7 +91,7 @@ class ServicoController extends Controller
             'message' => 'cadastro atualizado'
           ]);
         }
-        public function excluir($id)
+        public function deleteServico($id)
   {
     $usuario= servico::find($id);
 

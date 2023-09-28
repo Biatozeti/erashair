@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,8 +25,8 @@ Route::post('nome1',
 Route::post('descricao1',
 [ServicoController::class, 'PesquisarPorDescricao1']);
 
-Route::delete('delete/{id}',
-[ServicoController::class, 'excluir']);
+Route::delete('deleteServico/{id}',
+[ServicoController::class, 'deleteservico']);
 
 Route::put('update',
 [ServicoController::class, 'update']);
@@ -48,9 +49,18 @@ Route::post('email',
 [ClienteController::class, 'PesquisarPorEmail']);
 
 Route::delete('delete/{id}',
-[ClienteController::class, 'excluir']);
+[ClienteController::class, 'delete']);
 
 Route::put('update',
 [ClienteController::class, 'update']);
 
+route::post('esqueciSenha',
+[ClienteController::class,'esqueciSenha']);
 
+//
+
+Route::post('store3',
+[ProfissionalController::class,'store']);
+
+Route::post('pesquisaPorNome3',
+[ProfissionalController::class, 'pesquisaPorNome3']);

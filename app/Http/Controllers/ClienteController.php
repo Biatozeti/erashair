@@ -6,6 +6,7 @@ use App\Http\Requests\ClienteFormRequest;
 use App\Models\cliente;
 use App\Models\servico;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ClienteController extends Controller
 {
@@ -166,27 +167,34 @@ class ClienteController extends Controller
             ]);
           }
 
-          public function esqueciSenha(Request $request){ 
+          public function delete($id)
+          {
+            $cliente= cliente::find($id);
+        
+            if (!isset($cliente)) {
+              return response()->json([
+                'status' => false,
+                'message' => "cadastro nao encontrado "
+              ]);
+            }
+        
+            $cliente->delete();
+            return response()->json([
+              'status' => true,
+              'message' => "cadastro excluido com sucesso"
+            ]);
+          }
+               public function esqueciSenha(Request $request){
+                $cliente = cliente::where('cpf', '=', $request->cpf)->first();
 
-            $cliente = cliente::where('cpf', '=', $request->cpf)->first(); 
-            
-            if(!isset($cliente)){ 
+                if(!isset($cliente)){
+                  return response()->json([
+                    'status' => false,
+                    'message' => "Cadastro não encontrado"                
+                  ]);
+               }
     
-                return response()->json([ 
-    
-                    'status' => false, 
-    
-                    'message' => "Cadastro não encontrado" 
-    
-                ]); 
-    
-            } 
-    
-            if(isset($request->senha)){ 
-    
-                $cliente->senha = $request->senha; 
-    
-            } 
+  $cliente->senha=Hash::make($cliente->cpf);
      
             $cliente-> update(); 
             return response()->json([ 
