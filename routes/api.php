@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('store1',
 [ServicoController::class, 'store1']);
 
+Route::get('servico/retornarTodes',
+[ServicoController::class, 'retornarTodes']);
+
 Route::post('nome1',
 [ServicoController::class, 'pesquisarPorNome1']);
 
