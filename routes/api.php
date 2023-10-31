@@ -16,54 +16,57 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
-Route::post('store1',
+Route::post('servico/store1',
 [ServicoController::class, 'store1']);
 
 Route::get('servico/retornarTodes',
 [ServicoController::class, 'retornarTodes']);
 
-Route::post('nome1',
-[ServicoController::class, 'pesquisarPorNome1']);
+Route::post('servico/nome',
+[ServicoController::class, 'pesquisarPorNome']);
 
-Route::post('descricao1',
+Route::post('servico/descricao1',
 [ServicoController::class, 'PesquisarPorDescricao1']);
 
 Route::delete('deleteServico/{id}',
 [ServicoController::class, 'deleteservico']);
 
-Route::put('update',
+Route::put('servico/update',
 [ServicoController::class, 'update']);
 
 //
 
-Route::post('store2',
+Route::post('cliente/store2',
 [ClienteController::class, 'store2']);
 
-Route::post('nome2',
+Route::get('cliente/retornarTodes',
+[ClienteController::class, 'retornarTodes']);
+
+Route::post('cliente/nome2',
 [ClienteController::class, 'pesquisarPorNome2']);
 
-Route::post('cpf',
+Route::post('cliente/cpf',
 [ClienteController::class, 'PesquisarPorCpf']);
 
-Route::post('celular',
+Route::post('cliente/celular',
 [ClienteController::class, 'PesquisarPorCelular']);
 
-Route::post('email',
+Route::post('cliente/email',
 [ClienteController::class, 'PesquisarPorEmail']);
 
-Route::delete('delete/{id}',
+Route::delete('cliente/delete/{id}',
 [ClienteController::class, 'delete']);
 
-Route::put('update',
+Route::put('cliente/update',
 [ClienteController::class, 'update']);
 
-route::post('esqueciSenha',
+route::post('cliente/esqueciSenha',
 [ClienteController::class,'esqueciSenha']);
 
 //
 
-Route::post('store3',
+Route::post('profissional/store3',
 [ProfissionalController::class,'store']);
 
-Route::post('pesquisaPorNome3',
+Route::post('profissional/pesquisaPorNome3',
 [ProfissionalController::class, 'pesquisaPorNome3']);

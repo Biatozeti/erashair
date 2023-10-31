@@ -35,9 +35,9 @@ class ServicoController extends Controller
           ]);
         }
 
-        public function pesquisarPorNome1(Request $request)
+        public function pesquisarPorNome(Request $request)
         {
-          $servico = servico::where('nome', 'like', '%' . $request->pesquisarPorNome1 . '%')->get();
+          $servico = servico::where('nome', 'like', '%' . $request->nome . '%')->get();
       
           if (count($servico) > 0) {
             return response()->json([

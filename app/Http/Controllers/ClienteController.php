@@ -37,6 +37,15 @@ class ClienteController extends Controller
         "data" => $cliente
       ], 200);
     }
+    public function retornarTodes()
+    {
+      $cliente = cliente::all();
+  
+      return response()->json([
+        'status' => true,
+        'data' => $cliente
+      ]);
+    }
 
     public function pesquisarPorNome2(Request $request)
         {
