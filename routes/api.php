@@ -3,7 +3,6 @@
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,8 +64,12 @@ route::post('cliente/esqueciSenha',
 
 //
 
-Route::post('profissional/store3',
-[ProfissionalController::class,'store']);
 
-Route::post('profissional/pesquisaPorNome3',
-[ProfissionalController::class, 'pesquisaPorNome3']);
+Route::post('Profissional/cadastro',[ProfissionalController::class,'store']);
+Route::get('Profissional/retornarTodos',[ProfissionalController::class,'retornarTodos']);
+Route::post('Profissional/procurarNome',[ProfissionalController::class, 'pesquisarPorNome']);
+Route::post('Profissional/procurarCpf',[ProfissionalController::class, 'pesquisarPorCpf']);
+Route::post('Profissional/procurarCEP',[ProfissionalController::class, 'pesquisarPorCelular']);
+Route::post('Profissional/procurarEmail',[ProfissionalController::class, 'pesquisarPorEmail']);
+Route::delete('Profissional/excluir/{id}',[ProfissionalController::class, 'excluir']);
+Route::put('Profissional/atualizar', [ProfissionalController::class, 'update']);
