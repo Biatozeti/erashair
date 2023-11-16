@@ -36,6 +36,22 @@ class ProfissionalController extends Controller
             "data" => $profissional
         ],200);
     }
+
+    public function pesquisarPorId($Id)
+  {
+    $profissional = Profissional::find($Id);
+
+    if ($profissional == null) {
+      return response()->json([
+        'status' => false,
+        'message' => " usuario nao encontrado "
+      ]);
+    }
+    return response()->json([
+      'status' => true,
+      'data' => $profissional
+    ]);
+}
     public function retornarTodos()
     {
         $profissional = Profissional::all();

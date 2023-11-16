@@ -37,6 +37,22 @@ class ClienteController extends Controller
         "data" => $cliente
       ], 200);
     }
+
+    public function pesquisarPorId($Id)
+  {
+    $cliente = cliente::find($Id);
+
+    if ($cliente == null) {
+      return response()->json([
+        'status' => false,
+        'message' => " usuario nao encontrado "
+      ]);
+    }
+    return response()->json([
+      'status' => true,
+      'data' => $cliente
+    ]);
+  }
     public function retornarTodes()
     {
       $cliente = cliente::all();
@@ -49,7 +65,7 @@ class ClienteController extends Controller
 
     public function pesquisarPorNome2(Request $request)
         {
-          $cliente = cliente::where('nome', 'like', '%' . $request->pesquisarPorNome2 . '%')->get();
+          $cliente = cliente::where('nome', 'like', '%' . $request->nome . '%')->get();
       
           if (count($cliente) > 0) {
             return response()->json([

@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::post('servico/store1',
 [ServicoController::class, 'store1']);
 
+Route::get('servico/find/{id}',
+[ServicoController::class, 'pesquisarPorId']);
+
 Route::get('servico/retornarTodes',
 [ServicoController::class, 'retornarTodes']);
 
@@ -37,6 +40,9 @@ Route::put('servico/update',
 
 Route::post('cliente/store2',
 [ClienteController::class, 'store2']);
+
+Route::get('cliente/find/{id}',
+[ClienteController::class, 'pesquisarPorId']);
 
 Route::get('cliente/retornarTodes',
 [ClienteController::class, 'retornarTodes']);
@@ -66,6 +72,7 @@ route::post('cliente/esqueciSenha',
 
 
 Route::post('Profissional/cadastro',[ProfissionalController::class,'store']);
+Route::get('Profissional/find/{id}',[ProfissionalController::class,'pesquisarPorId']);
 Route::get('Profissional/retornarTodos',[ProfissionalController::class,'retornarTodos']);
 Route::post('Profissional/procurarNome',[ProfissionalController::class, 'pesquisarPorNome']);
 Route::post('Profissional/procurarCpf',[ProfissionalController::class, 'pesquisarPorCpf']);
