@@ -79,4 +79,4 @@ Route::post('Profissional/procurarCpf',[ProfissionalController::class, 'pesquisa
 Route::post('Profissional/procurarCEP',[ProfissionalController::class, 'pesquisarPorCelular']);
 Route::post('Profissional/procurarEmail',[ProfissionalController::class, 'pesquisarPorEmail']);
 Route::delete('Profissional/excluir/{id}',[ProfissionalController::class, 'excluir']);
-Route::put('Profissional/atualizar', [ProfissionalController::class, 'update']);
+Route::put('Profissional/update', [ProfissionalController::class, 'update']);
