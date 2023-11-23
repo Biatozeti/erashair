@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use Dotenv\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class AgendaFormRequest extends FormRequest
 {
@@ -22,7 +24,30 @@ class AgendaFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'profissional_id'=> 'required',
+            'cliente_id'=> '',
+            'servico_id'=> '',
+            'data_hora'=> 'required|date',
+            'tipo_pagamento'=>'|max:|20|min: 3',
+            'valor'=> 'decimal:2',
+
+        ];
+    }
+    public function failValidation (Validator $validator){
+  throw new HttpResponseException(response ()->json([
+    'sucess' => false,
+    'error' => $validator->errors()
+  ]));
+    }
+
+    public function messages(){
+        return[
+            'profissional_id.required'=> 'O campo profissional é obrigatorio',
+            'data_hora.required'=> 'cliente obrigatoria',
+            'data_hora.date'=> 'Formato invalido',
+            'tipo_pagamento.max'=> 'o campo nome deve conter no maximo 20 caracteres ',
+            'tipo_pagamento.min'=> 'o campo nome deve conter no maximo  3 cracteres',
+            'valor_decimal:2'=> 'formato invalido',
         ];
     }
 }
