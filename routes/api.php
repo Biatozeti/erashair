@@ -69,6 +69,9 @@ Route::put('cliente/update',
 route::post('cliente/esqueciSenha',
 [ClienteController::class,'esqueciSenha']);
 
+route::post('cliente/recuperarSenha',
+[ClienteController::class,'recuperarSenhaCliente']);
+
 //
 
 
