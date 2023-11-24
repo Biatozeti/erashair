@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Dotenv\Validator;
+use Illuminate\Contracts\Validation\Validator as ValidationValidator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
@@ -33,7 +34,7 @@ class AgendaFormRequest extends FormRequest
 
         ];
     }
-    public function failValidation (Validator $validator){
+    public function failValidation (ValidationValidator $validator){
   throw new HttpResponseException(response ()->json([
     'sucess' => false,
     'error' => $validator->errors()
