@@ -181,7 +181,7 @@ class ProfissionalController extends Controller
                 $profissional->complemento = $request->complemento;
             }
             if(isset($request->senha)){
-                $profissional->cpf = $request->senha;
+                $profissional->senha = $request->senha;
             }
             if(isset($request->salario)){
                 $profissional->salario = $request->salario;

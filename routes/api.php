@@ -69,8 +69,7 @@ Route::put('cliente/update',
 route::post('cliente/esqueciSenha',
 [ClienteController::class,'esqueciSenha']);
 
-route::post('cliente/recuperarSenha',
-[ClienteController::class,'recuperarSenhaCliente']);
+
 
 //
 
@@ -84,6 +83,7 @@ Route::post('Profissional/procurarCEP',[ProfissionalController::class, 'pesquisa
 Route::post('Profissional/procurarEmail',[ProfissionalController::class, 'pesquisarPorEmail']);
 Route::delete('Profissional/excluir/{id}',[ProfissionalController::class, 'excluir']);
 Route::put('Profissional/update', [ProfissionalController::class, 'update']);
+Route::post('esqueciSenhaProfissional', [ProfissionalController::class, 'esqueciSenha']);
 
 
 //
