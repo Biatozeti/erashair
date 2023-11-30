@@ -4,6 +4,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ProfissionalController;
 use App\Http\Controllers\ServicoController;
+use App\Models\Agenda;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -89,7 +90,7 @@ Route::post('esqueciSenhaProfissional', [ProfissionalController::class, 'esqueci
 //
 
 Route::post('cadastroAgenda', [AgendaController::class,'store']);
- Route::post('procurarAgenda', [AgendaController::class,'pesquisaPorAgenda']);
+ Route::post('procurarAgenda', [AgendaController::class,'pesquisarPorAgenda']);
  Route::delete('excluirAgenda/{id}', [AgendaController::class, 'excluir']);
  Route::put('atualizarAgenda', [AgendaController::class,'update']);
  Route::get('retornarTodosAgenda',[AgendaController::class, 'retornarTodos']);

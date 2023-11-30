@@ -213,5 +213,26 @@ class ProfissionalController extends Controller
                 'message' => "Cadastro excluido com sucesso"
             ]);
         }
+        public function esqueciSenha(Request $request){
+            $profissional = Profissional::where('cpf', '=', $request->cpf)->first();
 
+            if(!isset($profissional)){
+              return response()->json([
+                'status' => false,
+                'message' => "Cadastro não encontrado"                
+              ]);
+           }
+
+$profissional->senha=Hash::make($profissional->cpf);
+ 
+        $profissional-> update(); 
+        return response()->json([ 
+
+            'status' => true, 
+
+            'message' => "Cadastro atualizado" 
+
+        ]); 
 }
+}
+
