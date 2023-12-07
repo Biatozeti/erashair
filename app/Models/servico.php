@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class servico extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = [
-        'nome',
-        'descricao',
-        'duracao',
-        'preco',
-      ];
+  protected $fillable = [
+    'nome',
+    'descricao',
+    'duracao',
+    'preco',
+  ];
 }

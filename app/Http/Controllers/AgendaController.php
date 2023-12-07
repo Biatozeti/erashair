@@ -66,42 +66,42 @@ class AgendaController extends Controller
         ]);
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
         $agendas = agenda::find($request->id);
-    
-        if(!isset($agendas)){
+
+        if (!isset($agendas)) {
             return response()->json([
                 'status' => false,
                 'message' => "Cadastro não encontrado"
             ]);
         }
-    
-        if(isset($request->profissional_id)){
+
+        if (isset($request->profissional_id)) {
             $agendas->profissional_id = $request->profissional_id;
         }
-        if(isset($request->agenda_id)){
-            $agendas->agenda_id= $request->agenda_id;
+        if (isset($request->agenda_id)) {
+            $agendas->agenda_id = $request->agenda_id;
         }
-        if(isset($request->servico_id)){
+        if (isset($request->servico_id)) {
             $agendas->servico_id = $request->servico_id;
         }
-        if(isset($request->data_hora)){
+        if (isset($request->data_hora)) {
             $agendas->data_hora = $request->data_hora;
         }
-        if(isset($request->tipo_pagamento)){
+        if (isset($request->tipo_pagamento)) {
             $agendas->tipo_pagamento = $request->tipo_pagamento;
         }
-        if(isset($request->valor)){
+        if (isset($request->valor)) {
             $agendas->valor = $request->valor;
         }
-    
-    
-        $agendas-> update();
-    
+
+
+        $agendas->update();
+
         return response()->json([
             'status' => true,
             'message' => "Cadastro atualizado"
         ]);
-    
     }
 }

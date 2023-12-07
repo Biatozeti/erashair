@@ -16,23 +16,23 @@ class ProfissionalSeeder extends Seeder
     {
         for ($i = 0; $i < 100; $i++) {
             Profissional::create([
-                'nome' => 'teste '. $i,
+                'nome' => 'teste ' . $i,
                 'celular' => '123456789',
-                'email' => 'teste'. $i. '@hotmail.com',
+                'email' => 'teste' . $i . '@hotmail.com',
                 'cpf' => rand(00000000001, 99999999999),
                 'dataNascimento' => '2007-05-08',
                 'cidade' => 'cidade' . $i,
                 'estado' => 'uf',
                 'pais' => 'pais' . $i,
-                'rua' => 'rua'. $i,
+                'rua' => 'rua' . $i,
                 'numero' => '1234',
                 'bairro'  => 'bairro' . $i,
                 'cep' => '12345678',
-                'complemento' => 'complemento'. $i,
+                'complemento' => 'complemento' . $i,
                 'senha' => Hash::make('123456'),
                 'salario' => '200.00'
 
             ]);
+        }
     }
-}
 }
